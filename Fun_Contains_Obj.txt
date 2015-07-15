@@ -1,0 +1,15 @@
+'----Info  : This is Fun to check if certain object exists, for example, sheet, workbook, etc
+'----Source: Internet
+'----Author: Unknown
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-07-15, by SD
+'--------------------------------
+
+Function Contains(objCollection As Object, strName As String) As Boolean
+    Dim o As Object
+    On Error Resume Next
+    Set o = objCollection(strName)
+    Contains = (Err.Number = 0)
+    Err.Clear
+ End Function
