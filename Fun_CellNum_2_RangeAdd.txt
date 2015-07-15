@@ -1,0 +1,21 @@
+'----Info  : This is a function to convert range address to cells(i,j) and vice versa 
+'----Source: my own
+'----Author: Shutong Ding
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-07-15, by SD
+'--------------------------------
+
+
+' Convert Cell number indexes to the Range address in string
+Function CellNum_2_RangeAdd(i As Integer, j As Integer) As String
+ CellNum_2_RangeAdd = Cells(i, j).address(RowAbsolute:=False, ColumnAbsolute:=False)
+End Function
+
+' Convert Range adress of single cell to get cell number indexes
+
+' to call the row
+Range("A1").row  
+' to call the col
+Range("A1").col  
+
