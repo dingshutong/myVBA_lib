@@ -12,6 +12,14 @@ Function CellNum_2_RangeAdd(i As Integer, j As Integer) As String
  CellNum_2_RangeAdd = Cells(i, j).address(RowAbsolute:=False, ColumnAbsolute:=False)
 End Function
 
+' Convert column number into letter
+Function Col_Letter(lngCol As Long) As String
+Dim vArr
+vArr = Split(Cells(1, lngCol).Address(True, False), "$")
+Col_Letter = vArr(0)
+End Function
+
+
 ' Convert Range adress of single cell to get cell number indexes
 
 ' to call the row

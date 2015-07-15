@@ -6,10 +6,10 @@
 '--- Initial, 2015-07-15, by SD
 '--------------------------------
 
-Function Contains(objCollection As Object, strName As String) As Boolean
+Function Contains_Obj(objCollection As Object, strName As String) As Boolean
     Dim o As Object
     On Error Resume Next
     Set o = objCollection(strName)
-    Contains = (Err.Number = 0)
+    Contains_Obj = (Err.Number = 0)
     Err.Clear
  End Function
