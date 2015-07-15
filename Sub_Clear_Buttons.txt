@@ -1,0 +1,18 @@
+'----Info  : This is Sub to delete all the buttons exsiting in current workbook.
+'----Source: Internet
+'----Author: Unknown
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-07-15, by SD
+'--------------------------------
+
+
+Sub Clear_Buttons()
+
+    If ActiveSheet.ProtectContents = True Then
+        MsgBox "The Current Workbook or the Worksheets which it contains are protected." & vbLf & "                          Please resolve these issues and try again."
+    End If
+ 
+    On Error Resume Next
+        ActiveSheet.Buttons.Delete
+End Sub
