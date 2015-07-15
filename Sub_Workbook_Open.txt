@@ -1,0 +1,16 @@
+'----Info  : This is Private Sub to automatic excute macros when the workbook opens 
+'----Source: my own
+'----Author: Shutong Ding
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-07-15, by SD
+'--------------------------------
+
+
+' procedure to be called by excel when workbook opens
+Private Sub Workbook_Open() ' This is saved under ThisWorkbook
+    ' perform tasks
+    Call Macro1 ' Macros are all saved in the public module
+    Call Macro2 ' if any more sub to call  
+End Sub
+
