@@ -1,4 +1,4 @@
-'----Info  : This is Private Sub to automatic excute macros when the workbook opens 
+'----Info  : This is Private Sub to automatic execute macros when the workbook opens 
 '----Source: my own
 '----Author: Shutong Ding
 '--------------------------------
