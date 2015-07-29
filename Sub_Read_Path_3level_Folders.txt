@@ -1,0 +1,68 @@
+'----Info  : 'This sub prints the name and path of all the folders only first three levels
+'----Source: owner
+'----Author: SD
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-07-29, by SD
+'--------------------------------
+
+'This sub prints the name and path of all the folders only first three levels
+'in the directory strPath
+' Dir - Folder1 - SubFolder1 - SubSubFolder1
+'                            - SubSubFolder2
+'                            - .............
+'               - SubFolder2 - ...
+'               - ..........
+'     - Folder2 - ..........
+'     - ....... - ..........
+' OUTPUT: id | folder name | subfolder name | subsubfolder path
+
+Sub Read_Path_3level_Folders()
+
+Dim objFSO As Object
+Dim objDir As Object
+Dim objFolder As Object
+Dim objSubFolder As Object
+Dim objSubSubFolder As Object
+Dim i As Integer
+Dim myDir As String
+Const ROW_FIRST As Integer = 5
+Dim pathDrive As String
+
+
+
+'entry for the directory, e.g., L:
+myDir = Cells(1, 1).Value
+i = ROW_FIRST
+pathDrive = "\\ilostat-win.ilo.ch\raw information"
+
+'Create an instance of the FileSystemObject
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+
+'Get the folder object
+Set objDir = objFSO.GetFolder(myDir)
+
+
+'loops through each folder in the directory and prints their names and path
+For Each objFolder In objDir.subfolders
+    For Each objSubFolder In objFolder.subfolders
+       For Each objSubSubFolder In objSubFolder.subfolders
+           'print id
+            Cells(i + 1, 1) = i - ROW_FIRST + 1
+           'print folder name
+            Cells(i + 1, 2) = objFolder.Name
+           'print Subfolder name
+            Cells(i + 1, 3) = objSubFolder.Name
+           'print SubSubfolder name
+            Cells(i + 1, 4) = objSubSubFolder.Name
+            'print folder path
+            Cells(i + 1, 5) = Replace(objSubSubFolder.Path, myDir, pathDrive)
+            i = i + 1
+        Next objSubSubFolder
+    Next objSubFolder
+Next objFolder
+
+
+End Sub
+
+
