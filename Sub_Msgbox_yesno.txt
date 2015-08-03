@@ -1,0 +1,23 @@
+'----Info  : This is a subroutine to add MsgBox with Yes/No choice
+'----Source: my own
+'----Author: Shutong Ding
+'--------------------------------
+'--- Update log:
+'--- Initial, 2015-08-03, by SD
+'--------------------------------
+
+' This is inside a sub
+
+sub MsgBox_yesno()
+
+Dim answer As Integer
+
+answer = MsgBox("Your question comes here?", vbYesNo + vbQuestion, "MsgBox title")
+
+If answer = vbYes Then
+ ' Yes opreation
+else
+ ' no opreation
+end if 
+
+end sub
